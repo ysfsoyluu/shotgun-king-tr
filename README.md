@@ -21,9 +21,9 @@ v1.0
 
 ## Screenshots
 
-![Menu](screenshots/menu_en.png)
-![Menu](screenshots/menu_tr.png)
-![Gameplay](screenshots/gameplay1_en.png)
-![Gameplay](screenshots/gameplay1_tr.png)
-![Gameplay](screenshots/gameplay2_en.png)
-![Gameplay](screenshots/gameplay2_tr.png)
+![Menu](screenshots/Menu_EN.png)
+![Menu](screenshots/Menu_TR.png)
+![Gameplay](screenshots/Gameplay1_EN.png)
+![Gameplay](screenshots/Gameplay1_TR.png)
+![Gameplay](screenshots/Gameplay2_EN.png)
+![Gameplay](screenshots/Gameplay2_TR.png)
