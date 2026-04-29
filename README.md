@@ -4,13 +4,13 @@ This is a Turkish translation for Shotgun King: The Final Checkmate.
 
 ## Features
 - Menu: 100% translated
-- UI: mostly translated
-- Gameplay texts: partially translated
+- UI: 99% translated
+- Gameplay texts: fully translated
 
 ## Installation
 1. Go to your game directory:
-   Steam/steamapps/common/Shotgun King/
-2. Copy the "lang" folder into the game directory
+   Steam/steamapps/common/Shotgun King/lang
+2. Copy the "turkish.txt" file into the game directory
 3. Select Turkish in language settings
 
 ## Notes
