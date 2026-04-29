@@ -18,3 +18,12 @@ This is a Turkish translation for Shotgun King: The Final Checkmate.
 
 ## Version
 v1.0
+
+## Screenshots
+
+![Menu](screenshots/menu_en.png)
+![Menu](screenshots/menu_tr.png)
+![Gameplay](screenshots/gameplay1_en.png)
+![Gameplay](screenshots/gameplay1_tr.png)
+![Gameplay](screenshots/gameplay2_en.png)
+![Gameplay](screenshots/gameplay2_tr.png)
