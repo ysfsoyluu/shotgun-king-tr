@@ -27,3 +27,6 @@ v1.0
 ![Gameplay](screenshots/Gameplay1_TR.png)
 ![Gameplay](screenshots/Gameplay2_EN.png)
 ![Gameplay](screenshots/Gameplay2_TR.png)
+
+## Contribution
+Contributions are welcome.
