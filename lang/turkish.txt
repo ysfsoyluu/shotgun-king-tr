@@ -1,1 +1,1506 @@
+font>>pico
+font_line_height>>6
+
+  -- Please only ever modify the part to the right of '::'.
+
+  -- In all texts, '|' indicates a linebreak for the game.
+
+  -- The game replaces instances of $0, $1, etc with relevant numbers.
+
+  -- instances of (s) are replaced with an 's' if the number associated is above 1, otherwise it is simply removed. The following alternatives are supported: (you can still use (s) if relevant)
+  -- (es) for Spanish
+  -- (y) for Polish
+  -- (и) for Ukrainian
+  -- (n), (er) and (e) for German
+  -- Additionally if none of these are helpful you can set a word between braces to tell the game to replace it according to a specific pluralization rule you specified at the end of this file. For example instead of writing "$0 man(s)" which makes no sense, I would write "$0 [man]" and the game will know to replace it with either "man" or "men" (defined at the very end of this file) depending on whether $0 is replaced with a 1 or something above. Make sure to write the singular version of the word inside the braces.
+  -- Even more specific pluralization rules can be defined at the end of this file, including rules for specific numbers.
+  -- In all cases outside of percentages, all numbers can safely be assumed to be below 10. For unnumberred plurals, (eg: knight(s) get +2 HP) the game always uses the number 999 internally.
+
+
+  -- MENU
+  -- These are displayed on buttons in the game's various menus.
+play::Oyna
+options::Ayarlar
+codex::Kodeks
+credits::Emegi Gecenler
+quit::Cikis
+back::Geri
+resign::Pes Et
+start::Basla
+
+  -- The next four keys are used in Charnier mode
+  -- short for "Are you sure?", used when resigning
+sure::Emin misin?
+next raid::Siradaki Saldiri
+  -- brands are upgrades, they are bought with "cinders", which are won by winning raids in Charnier mode.
+brands::Damgalar
+  -- used for buying brands with cinders
+claim::Iste
+
+  -- Appears in the pause menu while in the tutorial. Could be translated as "end tutorial".
+skip_tutorial::Alistirmayi Gec
+
+  -- This is shown on the titlescreen when using mouse and keyboard.
+click_start::Baslamak icin Tikla
+  -- This is shown on the titlescreen when using a controller.
+press_start::Baslamak icin $0 bas
+  -- Cinders are the rewards for burning village in charnier mode.
+cinders_lefts::Kalan kuller
+cinders::Kuller
+
+  -- OPTIONS
+music::Muzik
+sfx::Ses
+fullscren::Tam Ekran
+  -- CRT stands for Cathode-Ray Tube, it's the name of the effect that curves the screen and simulates "scanlines". Could be translated as "old monitor" or "screen effect" or just keep "CRT". Use something short.
+crt::Katod Isıtaci
+speedrun::Hizli Oyun
+shields::Kalkanlar
+scr.shake::Ekr. salla..
+scr.flash::Ekr.flas..
+  -- Language. Use something short enough to fit on the same button with your language's name.
+lang::Dil
+  -- Should be your language's name.
+lang_endonym::Turkce
+  -- Controller vibrations
+rumble::Sarsinti
+on::Acik
+off::Kapali
+  -- GAMEMODE MENU
+  -- On gamemode selection screen, shows highscore for selected mode
+  -- eg: Best floor: 8
+  -- Note: the value after the colon is always a number in numerals
+best_floor::En iyi kademe:
+best_score::Yuksek Skor:
+best_rank::En iyi seviye:
+best_time::En iyi sure:
+
+  -- The following describe each gamemode.
+throne_desc::Taht modu|Ana kulenin 12nci katına ulaşarak tahtini geri kazan
+endless_desc::Sonsuz mod|Sonu gelmez zindanlara gir ve beyaz orduyu itebildigin kadar geri it
+chase_desc::Kacis modu|Siyah kaleden kac !|- Dayanabildigin kadar dayan|- Gardiyanlar sinirlardan surekli ortaya cikar|- Milis aktif, Terfi pasif|- Her olu Vezir siyah kart kazandırır|- Yalnızca 5 kart tasiyabilirsin|- Fiseklerini doldurmak icin cephane al
+tutorial_desc::Alistirma|Oyunu ogren!
+charnier_desc::Mezarlik modu|Sadik koyluleri yagmala|- Merhamer gosterme|- Cesetlerden bir yigin olustur|- Zorluk her yagmada artar|- Olumden kacmak icin kulleri topla ya da damga satin al
+
+  -- These are unlock conditions for gamemodes that are not available from the start.
+endless_lock::Sonsuz modu acmak icin Taht modunu herhangi bir seviyede bitir
+chase_lock::Kacis modunu acmak icin Sonsuz modda 15inci kata ulas
+charnier_lock::Mezarlik modunu acmak icin Taht modunda 5 ve uzeri seviyeye ulas
+
+  -- This is used for rank selection (=difficulty selection)
+rank::Seviye
+
+
+  -- Used to confirm an action such as giving up or wiping the player's save
+ask_confirm::Emin misin?
+
+
+  -- CODEX
+  -- The codex is the collection of cards the player has seen and used. The achievements also share this interface.
+  -- $0 is replaced with the actual progress percentage.
+ui_codex::Kodeks: $0%
+ui_achievements::Basarimlar: $0%
+
+  -- Played and love are stats about the cards. "played is shown as "Played:3" for example, and love as "Love: 50%". Love is the preference stat of picking this card over another when given the choice.
+codex_played::Oynanan
+codex_love::Favori:
+
+  -- Here $0 is replaced with a list of cards that need to be in play before the selected card can appear for the first time. $1 is replaced with the card's name.
+codex_gather::
+
+  -- Here $0 is replaced with one or multiple tags (eg: "leader or grenade") that need to be in play before the card can appear for the first time. And $1 is replaced with the card's name. Tags are essentially keywords associated with certain cards.
+codex_gather_tags::$1 acmak icin oyun oynarken $0 etiketli kartlari topla
+
+  -- Used to list the tags associated with a card. Shown as "tags: [list of tags]"
+codex_tags::etiketler
+
+  -- Shown as "Needs card: [Card name]", meaning the selected card needs this card to be in play before it can appear in game.
+codex_need_card::Gereken kart
+
+  -- Shown as "Needs tag: [tag]", meaning the selected card needs this tag to be in play before it can appear in game.
+codex_need_tag::Gereken etiket
+
+  -- Shown as "Excludes tag: [tag]", meaning that while this card is in play, cards that have the denoted tag cannot appear.
+codex_exclude_tag::Etiketi kaldirir
+
+  -- Shown on a button that resets the player's progress on discovering cards.
+codex_reset::Istatistikleri resetle
+
+  -- Show for cards that have secret conditions for appearing in game for the first time.
+codex_secret::Bu kart gizli. Sadece belirli durumlarda ortaya cikar
+
+  -- Here $0 and $1 are replaced with a number and a stat respectively. Indicates a condition for a card to appear for the first time.
+  -- Eg: This card needs at least 6 firepower to appear
+codex_need::Bu kartin gorunmesi icin en az $0 $1 gerekli
+
+
+  -- CARD TAGS
+  -- These are tags associated with different cards, as shown in the codex.
+  -- leader is for any card that affects white kings or whichever piece which has the crown
+tag_leader::Lider
+
+  -- mission is for Undercover Mission and The Mole
+tag_mission::Gorev
+
+  -- cloak is for any card that lets you get into stealth mode
+tag_cloak::Pelerin
+
+  -- bleed is for any card that allows you to inflict bleeding
+tag_bleed::Kanama
+
+  -- orb is for the Seer's Orb
+tag_orb::Kure
+
+  -- jump is for cards which let you jump over pieces, inflicting them one damage (like Taunting Hop)
+tag_jump::Zipla
+
+  -- grenade is for cards that give you explosive grenades
+tag_grenade::El bombasi
+
+  -- blade is for cards that allow you to slash at low-hp enemy pieces
+tag_blade::Kilic
+  -- tunnel is for cards that dig holes on the board
+tag_tunnels::Tunel
+  -- ally is for cards that give access to black pieces
+tag_ally::Muttefik
+  -- on_hit is for cards that give bullets effects on hit
+tag_on_hit::Vurus basina
+
+  -- GAME MODE
+  -- These are gamemode names, used in the gamemode selection menu.
+  -- Tutorial is the tutorial, teaches the player how to play the game.
+  -- Throne is the main, campaign mode where the goal is to reclaim the black king's throne.
+  -- Endless is an arcade-style highscore-chasing mode, it goes on until you lose.
+  -- Chase is a survival mode where pieces comme continually from the sides of the checkboard until you lose.
+tutorial::Alistirma
+throne::Taht
+endless::Sonsuz
+chase::Kacis
+  -- Charnier is a new gamemode where the player raids villages which get more and more difficult, amassing corpses and cinders. Charnier is a french word which we kept in English. If it sounds too weird in your language, you can use Rampage, Carnage, Reaving...
+charnier::Mezarlik
+
+
+  -- INGAME
+  -- These are elements of the in-game interface, either shown are at all time or when relevent.
+
+  -- Floor is the current game level, eg: "Floor: 4"
+floor_::Kat:
+
+  -- eg: "Score: 12"
+score_::Skor:
+
+  -- Shown on selected pieces that are poisoned, as: "Poison|[number of turns until not poisoned anymore]". Poison makes pieces go slower.
+poison::Zehir
+  -- Shown on selected pieces that can dodge pellets, as: "Dodge|[percentage change of dodging bullets]"
+dodge::Kacinma
+  -- Shown on selected pieces that are protected and can't take more than x damage
+dmg cap::Hasar siniri
+
+  -- The following need to be very short to fit the space to the left of the checkboard. Use no more than 8 characters. Prefer 7 or less. Feel free to use abreviations.
+  -- short version of firepower
+power::Guc
+
+  -- short version of range
+range::Mesafe
+
+  -- short version of fire arc
+f_arc::A.Acisi
+
+  -- short version of knockback (percentage of chance to push pieces backwards when they're hit)
+knock::Tepme
+
+  -- short version of pierce (percentage of chance that pellets will not stop after hitting a first target)
+pierc::Delme
+
+  -- short version of blade/sword/cutting (ability to cut down pieces that have low-enough health)
+blade::Kilic
+
+  -- short version of fright/scariness/terror (radius in which killing a piece will scare other pieces)
+fright::Korku
+
+  -- short version of jump (number of times you can jump over other pieces before ending your turn)
+jump::Ziplama
+
+  -- short version of grenade damage
+g_dmg::B.Hasari
+
+
+  -- Current turn, eg: "Turn: 13"
+turn_::Tur:
+
+  -- Displayed when the player is pressing "shift" to ignore folly shields (which prevent you from putting yourself in a gameover position)
+unsafe_mode::Emniyetsiz Mod
+
+  -- Shown at the bottom of the screen when losing because of a classic chess checkmate
+checkmate::Sah Mat!
+
+  -- Shown after the gameover to ask if the player wants to restart.
+try_again::Tekrar dene?
+  -- Yes//No buttons
+yes::Evet
+no::Hayir
+
+  -- Used in endless mode past level 11. Instead of getting new cards, the white army is improved with one of these effects at random: (in piece_join, $0 is the replaced with the name of a piece, eg: "A knight joins the white army")
+blood_bowl::Kan Canagi|Tum beyazlar +1 HP alır
+pawns_join::Beyazlara iki piyon katılır
+piece_join::Bir $0 beyazlara katılır
+
+  -- Shown when hovering the mouse cursor on wands. Wands are magic abilities the player can have.
+click_to_use::Kullanmak icin tikla
+
+  -- Shown instead when using a controller.
+press_to_use::Kullanmak icin $0 bas
+
+  -- Shown on wands that have already been used this floor.
+replenish_floor::Siradaki katta yenilenir
+
+  -- Folly shields descriptor, shown on hovering folly shields below the shotgun. They automatically protect you from making moves that would lead you to your immediate death, consuming one shield every time.
+folly_shield::Hamakat Kalkanlari|Intihar icgüdüsünden korur|Her turda yeniden dolar
+
+  -- Shown on hovering a piece's soul, placed at the right of the checkboard after killing a noble piece. (knight, rook, bishop or queen) $0 is replaced with the piece's name.
+soul_desc::$0'in ruhu|$0 gibi hareket etmek icin kullan
+
+  -- Used when playing with a controller. $1 is replaced with a button name.
+soul_desc_console::$0'in ruhu|$0 gibi hareket etmek icin $1'a bas
+
+  -- This is added below soul_desc when Sacred Crown is in play.
+crow_turn::Ekstra bir tur daha oyna
+  -- This is added below soul_desc for warden souls specifically (wardens are a new chess piece added in v1.6)
+warden_soul::Kullanılana kadar seni olumden korur
+
+
+  -- This is shown instead of soul_desc when the soul slot is empty. Killing a noble piece will fill this slot with its soul.
+soul_slot::Ruh yuvası|Ruhlarini calmak icin saygideger bir rakip ele
+
+  -- These are shown specifically on pawn souls, which can be obtained with the card "Cannon Fodder". $0 is always replaced with the translation for "Pawn".
+pawn_soul_desc::$0'in ruhu|Siradaki atişta 2 atiş gücü kazanmak icin kullan
+pawn_soul_desc_console::$0'in ruhu|Siradaki atişta 2 atiş gücü kazanmak icin $1'a bas
+
+  -- This is shown when trying to reload your shotgun but it's already loaded.
+already_loaded::Pompali zaten dolu!
+
+  -- This is shown when attempting to use the Wand of Wrath but there's no valid target for it.
+not_target_wrath::Wrath icin gecerli bir hedef yok!
+
+  -- This is shown when attempting to use the Wand of Wings but no move is possible.
+cant_move::Hareket edemezsin!
+
+  -- This shown when hovering on the shotgun at the top of the screen. $0 is replaced with a number of shells, and $1s is replaced with the translation for "shell". It is pluralized automatically when relevant. (look to the bottom of this file to define specific pluralization rules)
+reload_shotgun_desc::$0 doldurmak icin tikla $1'lar pompalida
+
+  -- Used in the previous line.
+shell::Fisek
+
+  -- Player has lost.
+game_over::Oyun Bitti
+
+  --Player has won a raid in the Charnier game mode.
+raid_won::Yagma kazandın!
+
+  -- Shown at the bottom of the screen when trying to reload or use abilities but it's not possible.
+no_ammo_left::Cephane yok
+no_shell_loaded::Dolu fisek yok
+no_grenade_left::El bombasi yok
+  -- Only one grenade can be thrown per turn.
+one_grenade_per_turn::Her turda yalnizca bir el bombasi
+  -- Scope is one of the abilities.
+scope_on::Durbun zaten acik
+
+  -- Shown when a card is inactive. (not necessarily used up) $0 is replaced with with one of the next two lines.
+card_exhausted::Kart kullanim disi. $0 yenilenecek
+refresh_when::Siradaki kata ulastiginda
+  -- ammo boxes have to be reached and picked up on the checkboard.
+refresh_when_chase::cephane kutusu aldiginda
+
+  -- Shown when a card is temporarily inactive because of a condition stated in the card's description. $0 is replaced with one of the keys under "CONDITIONS" further down in this file.
+  -- eg: the High Focus card will deactivate "because a piece is adjacent to you".
+card_exhausted_bc::Kart $0 nedeniyle kullanim disi
+
+  -- Shown at the bottom of the screen during the animation where the heir is chosen at the start of a floor.
+hiding_heir::Hiding heir
+
+  -- Shown above the soul slots to the right of the checkboard
+souls::Ruhlar
+
+  -- Used with angles. eg: "Fire arc: +30°"
+degree_symbol::°
+
+  -- Used when unlocking a new shotgun or a new rank, or completing an achievement. $0 is replaced with the name of the shotgun/rank/achievement.
+unlocked::$0 acildi!
+
+  -- Used on the disrupt menu which lets you disrupt the white side with a negative effect.
+choose_disrupt::choose a disrupt effect
+
+  -- Shown at the bottom of the screen when the countdown is on and the player has to finish the floor in a number of turns.
+  -- Shown as "final countdown:[turns remaining]"
+final_countdown::Son Turlar
+
+  -- Used when there's no possible target/victim for an ability the player is trying to use.
+no_valid_target::Gecerli hedef yok
+
+  -- Select a piece as target for an ability
+select_a_piece::SBir tas sec
+
+  -- Used with the Wand of Wings which lets you move further away from your position.
+choose_destination::Hedef sec
+
+
+  -- NEW!
+  -- Shown at the bottom of the screen when two pieces swap positions.
+swap::Degistir!
+
+  -- Shown at the bottom of the screen in a very specific situation where the King's Look-Alike false king is revealed and subsequently becomes the real king, because the real king was removed when sabotaging the King's Look-Alike with a disruption effect.
+crowning::Terfi
+
+  -- Not used currently but would be used at the bottom of the screen when giving the player free random souls
+free_soul::Beles Ruhlar!
+
+  -- Shown at the bottom of the screen during the sabotage disruption effect
+select_white_card::Bir beyaz kart sec
+
+  -- Shown at the bottom of the screen when using the card Bold Plan
+replace_white_card::Herhangi bir beyaz kartı degistir
+
+
+
+  -- LEVEL_UP
+choose_set::Bir kart seti sec
+
+  -- Used for a specific menu that allows you to choose one card among all possible cards.
+choose_any_card::Bir kart sec
+
+
+  -- EMOTES
+  -- These are shown over the head of white pieces, or of the black king, in specific situations.
+
+  -- Used when a pawn promotes to another piece.
+promote::Terfi
+anarchy::Anarsi!
+
+  -- Used when a knight protects the white king, making it impossible to kill the latter.
+knight_guard::Gardiyan
+
+  -- Used when the white king and a rook swap positions. Refers to the "Castle" move in classic chess.
+castle::Kale
+
+  -- Used when white pieces arrive sometime after the floor started.
+backup::Destek
+
+  -- Used when white pieces don't receive full damage because they are close to a piece that protects them. eg: rooks with the Cathedral card.
+cover::Ortu
+
+  -- The heir pawn is being promoted to king
+heir_promote::Varis!
+
+  -- Used to describe some card unlocks, eg: "This card needs at least 1 Heir to appear"
+heir::Varis
+
+  -- Used to describe some card unlocks, same as heir.
+spy::Casus
+
+  -- Used to describe some card unlocks.
+soul::ruh
+
+  -- The player has found the spy in the white army, allowing them to disrupt the white side.
+meet_spy::gizli bulusma!
+
+  -- The player can take another action.
+extra_turn::ekstra tur
+
+  -- Used when disguising as a pawn with the card Low-Cost Disguise.
+disguised::kilik değiştirildi!
+
+  -- Used when the player leaves stealth mode because they exposed themselves.
+visible::acikta!
+
+  -- Used when the white army disables a mission waypoint with the "investigate" card effect. The "mission" normally allows you to disrupt the white side when completed.
+abort_mission::gorev iptal!
+
+  -- Used when the white army finds and kills the spy in their ranks with the "investigate" card effect.
+spy_executed::casus infaz edildi!
+
+  -- Used on the white king when he gets hit and it promotes the nearest pawn with the "Emergency Call" card.
+help::yardim!
+
+  -- Used when shooting the white king's look-alike, revealing them for a knight instead.
+usurper::gaspci!
+  -- Used when a piece die, and other pieces with same type burn with anger for revenge.
+revenge_0::intikam!
+revenge_1::katil!
+  -- Used when auto-da-fé bishops mark a black card to be removed later. Alternatives: heretic! pagan!
+heresy::sapkinlilk!
+  -- Used when auto-da-fé bishop remove a marked black card. Alternatives: banned! censored!
+purge::arinma!
+  -- Used when bishop excommunicate a card
+exile::surgun!!
+  -- Used when the Boss promote a pawn
+regal_ascent::Sahane Yukselis
+  -- Used when the Boss call 3 royal guards
+royal_guards::Gardiyanlar!
+
+  -- BOSS LINES (also emotes)
+  -- This is used for a secret boss. The black bishop cries "Justice!" (for all the evil the black king has done) before fighting the black king.
+black_bishop_warcry::Adalet!
+
+  -- The following two lines are used for a secret boss: after the big white king dies, the iron queen grows tentacles and speaks these two lines. Then you have to fight her.
+  -- It has to be two lines, they should be relatively short.
+come_to_me::bana gel
+my_love::askim
+
+  -- These are used for a secret boss. They are the names of the four horsemen of the apocalypse. Please make sure to translate the correct names.
+apo_name_0::Salgın
+apo_name_1::Savas
+apo_name_2::Kitlik
+apo_name_3::Olum
+
+  -- The following five lines are used for a secret ending where the four horsemen of the apocalypse show up, but the shotgun king takes the fourth horse and kills the other 3 horsemen before leaving the screen.
+  -- It has to be five lines, they are shown one after the other, and they should be relatively short.
+apo_threat_0::Kral'a
+apo_threat_1::bu-
+apo_threat_2::las-
+apo_threat_3::ma!
+apo_threat_4::Kork!
+
+  -- Used in a secret event where the white king gets disabled and their usurper knight becomes king instead.
+  -- Has to be 3 lines, they are shown in succession, they should be relatively short.
+power_people_0::Guc
+power_people_1::halkin
+power_people_2::olur!
+
+  -- Briefly shown above pieces when they dodge a pellet.
+miss::iska
+
+  -- Briefly shown above a piece that was set free from prison by the black king.
+free::serbest
+
+  -- Briefly shown above a piece that was converted over to the black army
+defect::firar
+
+
+
+  -- PIECES
+  -- These are used in card descriptions and other interface elements.
+piece_0::Piyon
+piece_1::At
+piece_2::Fil
+piece_3::Kale
+piece_4::Vezir
+piece_5::Sah
+piece_6::Patron
+piece_7::Tum taslar
+  -- Please keep piece_8 as "$leader", it is automatically replaced with your translation for the piece that currently has the crown in the game. (usually the king but not always)
+piece_8::$lider
+  -- Alternatives for slayer: assassin, ninja, hired killer, killer
+piece_12::Avci
+  -- The warden is an armored piece that can protect the king. Alternatives: champion, thane
+piece_13::Muhafiz
+
+  -- $0 here can be replaced with any other piece's name
+  -- Can be changed into "$0 of black color", or "black army $0"
+  -- Alternatively, you can use "[black]" and define custom plurals for "black" at the end of this file. (we unfortunately do not have a solution for simple adjective gendering)
+black_piece::black $0
+black_leader::Siyah Sah
+
+  -- SHORT PIECE
+  -- These are used on the panel to the left of the checkboard when inspecting a white piece. Space is limited, please only use 7 characters or fewer for each.
+short_piece_0::Piyon
+short_piece_1::At
+short_piece_2::Fil
+short_piece_3::Kale
+short_piece_4::Vezir
+short_piece_5::Sah
+  -- Boss is used for the big white king on the last level of Throne mode.
+short_piece_6::Patron
+  -- Blight is the name for the secret queen boss. The point is simply that she's scary, feel free to use whatever conveys that and fits the space constraint.
+short_piece_10::Bela
+  -- Rider is shown for the secret horsemen of the apocalypse bosses. Ideally should be different to the name for knights, you can also use a word/abreviation for "apocalypse" instead.
+short_piece_11::Binici
+short_piece_12::Avci
+short_piece_13::Muhafiz
+
+  -- CARD NAMES
+  -- These are the names for the black cards. The idea is to use a lot of adjectives belonging to the lexicons of royalty and self-importance.
+  -- If you have doubts on the meaning we were going for, please refer to the codex in-game to see the card's appearance and description. If that is not sufficient, feel free to message me and ask directly.
+
+Ermine Belt::Ermin Kemer
+Elite Gem::Elit Tas
+Extra Barrel::Ekstra Namlu
+Royal Loafers::Kraliyet Ayakkabisi
+Majestic Censer::Ihtisamli Tutsuluk
+Sacred Crown::Kutsal Tac
+Blunderbuss::Sapan tufegi
+Engraved Scope::Islemeli Durbun
+Holy Gunpowder::Kutsal Barut
+Ritual Dagger::Ayin Hanceri
+August Presence::Hasmetli Varlik
+Crow's Blessing::Karga'nın Lutfu
+The Moat::Hendek
+Rightful Curtsy::Mesru Reverans
+Wand of Downpour::Saganak Asasi
+Wand of Frenzy::Taskinlik Asasi
+Wand of Wrath::Gazap Asasi
+Wand of Wings::Kanat Asasi
+Wand of Gust::Esinti Asasi
+Wand of Hypnosis::Hipnoz Asasi
+Kingdom Wealth::Krallik Serveti
+Gradual Absolution::Kademeli Kefaret
+Taunting Hop::Alaycı Sicrama
+Faithful Steed::Sadik Binek
+Unjust Decree::Haksiz Ferman
+Kingly Alms::Kral Bagisi
+Subtle Poison::Sinsi Zehir
+Small Fry Harvest::Kucuk Hasat
+A Piercing Truth::Delici Gercek
+Black Mist::Kara Sis
+King's Shoulders::Kralın Omuzlari
+High Focus::Yuksek Odak
+Courteous Jousting::Centilmen Dovus
+Cornered Despot::Caresiz Zorba
+Sawed-off Justice::Sert Adalet
+Welcome Gift::Hosgeldin Hediyesi
+Cannon Fodder::Top Yemi
+Possessed::Lanetli
+Philanthropy::Hayirseverlik
+Imperial Shot Put::Imparatorluk Atisi
+Egotic Maelstrom::Benlik Girdabi
+Church Organ::Katedral Orgu
+Black Plague::Kara Salgin
+Ravenous Rats::Obur Sicanlar
+Deep Water::Derin Sular
+Unholy Call::Lanetli Cagri
+Undercover Mission::Gizli Gorev
+Caltrops::Dikenli Tuzaklar
+Nightbane::Gece Kirani
+Bushido::Bushido
+Bloodless Coups::Kansiz Darbe
+Presbyopia::Presbiyopi
+Golden Aging::Altın Yaslilik
+Fool Companion::Budala Yoldas
+Force-feeding::Zoraki Besleme
+Seer's Orb::Kahinin Kuresi
+Fearsome::Urkutucu
+Human Shield::Insan Kalkani
+Reign of Terror::Teror Donemi
+Monarch's Confidence::Hukumdarin Ozguveni
+The Mole::Kostebek
+Elusive::Ulasilmaz
+Holoking::Holokral
+Cloaking Device::Gorunmezlik Aleti
+Low-Cost Disguise::Dusuk Butceli Kilik
+Wand of Souls::Ruh Asasi
+Wand of Execution::Infaz Asasi
+Patience::Sabir
+Bold Plan::Cesur Plan
+Silencer::Susturucu
+Ambush::Pusu
+Ancient Flagstone::Kadim Doseme Tasi
+Tearing Bullets::Yırtıcı Mermiler
+Indelible Memories::Unutulmaz Anilar
+Mystic Shackles::Buyulu Kelepceler
+Secret Move::Gizli Hareket
+Sacred Light::Kutsal Isik
+Workshop::Atolye
+Selective Listening::Secici Dinleme
+  -- Alternatives for Right-Hand: Advisor, Counsel
+Right-hand::Sag-el
+Warhorse::Savas ati
+Bastion::Tabya
+  -- Lets you move further in one turn. Alternative: Dash.
+Sprint::Kosma
+  -- Soul Projection lets the player literally project a soul onto the board as a new black piece.
+Soul Projection::Ruh Projeksiyonu
+Onboarding Party::Uyum Ekibi
+Small Key::Kucuk Anahtar
+Rapunzel::Rapunzel
+Wand of Treachery::Hıyanet Asasi
+Guerilla Tactics::Gerilla Taktikleri
+Shovel::Kurek
+Grindstone::Bileme Tasi
+Death Mark::Olum İsareti
+Shrapnel::Sarapnel
+
+  -- Next are the names for the white cards. There's no specific direction here apart from sticking to medieval vocabulary and tropes, with some unavoidable but usually funny exceptions.
+Backups::Destek
+Cavalry::Suvari
+Conclave::Konsey
+Entitle::Yetki
+Cardinal::Kardinal
+Remparts::Surlar
+Pillage::Yagma
+Crusades::Seferler
+Peace::Baris
+King's Mistress::Kralin Metresi
+Revolution::Devrim
+Bodyguard::Guvenlik
+Ruins::Harabeler
+Assault::Saldiri
+Kite Shield::Ucurtma Kalkani
+Zealots::Bagnazlar
+Militia::Milis
+Ammunition Depot::Muhimmat Deposu
+Scouting::Kesif
+Pikemen::Mizrakcilar
+Ascension::Yukselis
+Castle::Kale
+Conscription::Asker alma
+Theocracy::Teokrasi
+Iron Maiden::Demir Bakire
+Court of the King::Kralin Mahkemesi
+The Red Book::Kizil Kitap
+Homecoming::Eve Donus
+Overthrown Theocracy::Devrilmis Teokrasi
+Saboteur::Sabotajci
+Lookout Tower::Gozetleme Kulesi
+Throne Room::Taht Odasi
+The Secret Heir::Gizli Varis
+  -- If you're afraid "Drag Queen" won't be understood in your culture, you can go for something else related to queer or transgender rights. Do not use slurs and try to keep it positive please.
+Genderqueer::Huysuz Virjin
+Karma::Kader
+Undead Armies::Yasayan Oluler Ordusu
+Shortage::Yetersizlik
+Succubus::Sukubus
+Bunker::Siginak
+Sanctity::Kutsallik
+  -- This card makes knights ethereal/ghost-like. Could be translated to something along the lines of Spectral Cavalry if there's no way to translate the Knightmare pun.
+Knightmare::Kabus
+Highest Dungeon::Zirve Zindan
+Cathedral::Katedral
+The Bridge::Kopru
+Divine Healing::Ilahi Sifa
+Last Guardian::Son Gardiyan
+Trowel::Mala
+Full Plate Armor::Tam Zirh
+Military Academy::Askeri Okul
+Witch's Curse::Cadinin Laneti
+Saddle::Eyer
+The Jester::Soytari
+Guillotine::Giyotin
+Analysis Paralysis::Analiz Felci
+Plumed Knight::Sorguclu Sovalye
+Emergency Call::Acil Durum Cagrisi
+Mangonel::Mancinik
+Governess::Murebbiye
+Mausoleum::Mozole
+Reverend Mother::Basrahibe
+Sokoban::Sokoban
+Tag Team::Esli Takim
+Unicorn::Unicorn
+Lady in the Tower::Kuledeki Kiz
+Final Countdown::Son Tur
+  -- Can be translated as Nomadism. Please do not use potentially offensive terms.
+Nomad Life::Gocebe Yasam
+Prison::Hapishane
+Inquisition::Anti-engizisyon
+King's Look-alike::Kralin Benzeri
+The Royal Hunt::Kraliyet Avi
+Tragic Homecoming::Trajik Eve Donus
+  -- Limos (or Limus in latin, take your pick) is the name of the third Horseman of the Apocalypse, the one wearing the shield (/buckler) in the secret boss version of the horsemen in the game. This card gives the shield to the white king, protecting him to some extent. The Limos reference doesn't have to be kept if you can find a better name for that card in your language.
+Buckler of Limos::Limos'un Kalkani
+Vampirism::Vampircilik
+Commoner's Reign::Halkin Iktidari
+Bouncy Castle::Ziplayan Kale
+Fallen Dynasty::Dusmus Hanedanlik
+Self-Defense::Oz Savunma
+Unsettled Throne::Sarsilmis Taht
+Latecomer::Geciken
+Vendetta::Kan Davasi
+Stoning::Taslama
+Anarchy::Anarsi
+  -- Auto-da-fe was a punishment for heretics by the spanish inquisition. It means "act of faith". Feel free to look up what they call it in your language on Wikipedia and use that: https://en.wikipedia.org/wiki/Auto-da-f%C3%A9
+Auto-da-fe::Engizisyon Yakmasi
+  -- Late for Dinner delays the arrival of a few pieces, making the black king wait.
+Late for dinner::Gecikme
+Excommunication::Aforoz
+  -- Refers to a queen/woman being burned at the stake by the bishops for acts of sexual deviancy
+Pyre of Lust::Sehvet Atesi
+Gatehouse::Kale Kapisi
+  -- Lightfoot lets pawns jump over other pieces. Can be replaced with your language's version of the children's game of leapfrog, if you feel it's relevant to your language's culture.
+Lightfoot::Sicrama
+Loyalist March::Sadiklar Yuruyusu
+Trench War::Siper Savasi
+Catacombs::Katakomplar
+Flesh Wall::Etten Duvar
+Hired Blade::Kiralık Kilic
+Oathkeeper::Yemin Bekcisi
+  -- Redemption as in the religious practice of making up for past wrongs.
+Redemption::Bagislanma
+
+
+
+
+  -- CARDS DYNAMIC
+  -- These are used to describe card effects.
+  -- $0 is replaced with a number (usually 1 or 2) and $1s is replaced with a piece name, pluralized accordingly with the number.
+  -- eg: Remove 2 pawns
+rem_piece:: $0 $1 kaldir
+
+  -- Same thing but $delay is replaced with either the at_delay key below, or the every_x_turn.
+  -- $final may be replaced either by nothing, or with the text for the "at_final", which is defined a little further below.
+  -- eg: Add 2 bishops after 10 turns
+  -- eg: Add 1 pawn every 4 turns
+add_piece:: $0 $1 ekle $delay $final
+
+  -- Same but without the delay.
+  -- eg: Add 2 knights
+add_piece_nodelay:: $0 $1 ekle $final
+
+  -- eg: 2 knights
+pieces::$0 $1
+
+  -- Add/remove a group of pieces, $0 is replaced using the 'pieces' key above.
+add_group::Add $0 $delay $final
+rem_group:: $0 kaldir
+
+
+  -- Used with add_piece. Also used under this form: "after/every N turns: [other effect]". $0 is replaced with a number.
+at_delay:: $0 tur sonra
+every_x_turn::her $0 turda
+  -- this is used to describe effects that are only active on the final floor of a raid in charnier mode.
+at_final::son carpismada
+
+  -- The following are the name of different stats as used in other card effects or in shotgun stats.
+ammo_max::maks. muhimmat
+grenades_max::el bombasi
+ammo_regen::muhimmat yenilenmesi
+firepower::Ates gucu
+firerange:Atis mesafesi
+chamber_max::namlu
+pierce::Delme
+spread::Yayilma
+  -- "Search" as in "Looking for something". The search stat lets you reroll card choices N times. Can also translate as "Reroll" if it makes more sense in your language.
+search::Yenile
+knockback::Geri tepme
+hp::HP
+reload_grenade::Bombalari Doldur
+butcher::Kasap
+sheath::Olum Isareti
+
+
+  -- Special descriptions for the Homecoming card, whcih always appears on the third level-up.
+queen_escape::Ondan kacamazsin...
+queen_everywhere::...O her yerdedir!
+
+  -- Even more special descriptions for when you try to reroll the Homecoming card.
+queen_escape_tragic::Yapmamaliydin...
+queen_everywhere_tragic::...Gorunen o ki uzgun!
+
+  -- Used to describe conditions under which a card deactivates. $0 is replaced with one of the conditions under CONDITIONS further below.
+flip_if::Eger $0 karti cevir
+
+  -- Used to denote a group of pieces in effect descriptions. Is used to replace some instances of <pieces>.
+  -- eg with effect_prison: Knights and bishops can't move or attack if near a rook.
+and::and
+
+  -- Actually used in the codex to specify multiple possible tags that can let a card appear.
+  -- eg: While playing a game gather cards with the tag mission or cloak to have a chance to make Inquisition appear
+  -- Please keep the whitespaces on both sides of your translation of "or" if your language uses whitespaces.
+_or_:: veya 
+_and_:: ve 
+
+  -- Used when an effect is limited to a square color. $1 is replaced with the effect, and $0 with the color as written just below.
+  -- eg: -1 firepower on white squares
+standing::$0 karede $1 var
+white::beyaz
+black::siyah
+
+
+  -- Specific effects
+  -- $0 is replaced with a number
+  -- $1 is replaced with a signed number (a positive number will be preceded by a + sign)
+  -- <inc> is also replaced with a signed number
+  -- $leader is replaced with the name of the piece which currently wears the crown. Normally "king" but can be "bishop" in case of theocracy for example.
+  -- <piece> is replaced with a piece name.
+  -- <pieces> is replaced with a pluralized piece name or with a group of pieces using the 'and' key. Then also piece names are pluralized.
+  -- <target_piece> is also replaced a piece name.
+  -- <target_pieces> is also replaced that same piece name but pluralized.
+  -- <leaders> gets replaced with the pluralized version of $leader.
+  -- <head> gets replaced with the leader for the relevant piece's color. effect_carryking for example is used by Faithful Steed on black knights, and lets them carry the black king.
+
+  -- these next 3 are new and might need reviewing
+effect_ammo_max::$1 maks. muhimmat
+effect_grenades_max::$1 el bombası
+effect_ammo_regen::$1 muhimmat yenilenmesi
+
+effect_chamber_max::Pompalı tüfege $0 ek fisek yükle
+effect_soul_slot::$0 ekstra ruh yuvası ekle
+effect_soul_sink::1 ruh yuvası kaldır
+effect_crown::Bir ruh karti hamlesi kullandiktan sonra ekstra bir tur oyna
+effect_presence::Sah olmayan taşlar sahınıza yaklaşamaz
+effect_moat::At olmayan taşlar hendeği tek hamlede geçemez
+effect_hp::<piece>: <inc> HP
+effect_hprc::<piece>: $0% HP
+effect_tempo::<piece>: <inc> hiz
+effect_shell::Her <piece> öldürdüğünüzde $0 fisek kazanin
+effect_poison::<piece>'in hareket limiti: $0 tur icin 1 karedir
+effect_cage::<pieces>'in hareketi $0 kare ile limitlidir
+effect_shield::<pieces> tüm hasarı tek seferde emen bir kalkana sahiptir
+effect_flying::<pieces> engellerin uzerinden gecebilir ve saldirabilir
+effect_castle::<head>, hasar almak uzereyken bir <piece> ile yer degistirir
+effect_iron::<pieces> olumsuzdur
+effect_orth::<pieces> yalnızca dikey ve yatay yönlerde hareket edebilir (saldıramaz)
+effect_joust::<piece> oldurdugunde ekstra tur kazan
+effect_recoil::Ates etmek sizi geri iter
+effect_firepower::$1 ates gucu
+effect_firerange::$1 atis mesafesi
+effect_pawnreap::Siradaki atista +2 ates gucu kazanmak icin piyonlarin ruhunu kullan
+effect_freegren::Turunuzu bitirmeden bir kez el bombası atın
+effect_grenade_dmg::$1 el bombasi hasari
+effect_sanctity::<piece> ruhları toplanamaz
+effect_plague::Her turun sonunda rastgele bir tas 1 hasar alir
+effect_rats::Bir tasi oldurdugunde, bir sican en yakin hedefe 1 hasar verir
+effect_deepwater::Hendekteki taslar sana saldiramaz
+effect_pentagrams::Tahtaya $0 pentagram ekle. Birini tetikleyince fazladan bir tur kazan. Hepsini tetikleyince +2 ates gucu kazan.
+effect_waypoint::Beyazlari dagitmak icin hedef noktasina ulas
+effect_blade::Kilic: $1
+effect_blade_console::Kilic: $1 hsr
+effect_blade_old::Yakın menzilde, canı kılıcının gucune esit veya daha dusuk olan taslari infaz et
+effect_bushido::Tur basina bir kez, kilicinla bir tasi infaz et; bu turunu sonlandirmaz.
+effect_peace::<pieces> saldiramaz
+effect_minr::<pieces> $0 menzilden daha yakindan sana saldiramaz
+effect_carry::<pieces> hareket ederken kale ve at olmayan taslari tasir
+effect_nocarry::<pieces> diger taslar tarafindan tasinamaz
+  -- for free = without spending the turn
+effect_freelift::<pieces> belese tutulup firlatilabilir
+effect_jester_guard::Soytarilar tum yonlere hareket edebilir ve her zaman $leader takip eder. Bir soytariyi oldurdugunde fazladan bir tur kazanirsin
+effect_bodyguard::<piece> hayattayken $leader oldurulemez
+effect_knockback::$1% dusmanlari geri itme sansi
+  -- here the second $ is replaced with the degree_symbol key.
+effect_spread::Atis acisi: $1$
+effect_absolution::Her ruh yuvasi icin $1 ates gucu
+effect_hop::Zipla: $1 (yakindaki bir tasin uzerinden zipla; turunu sonlandirmaz)
+effect_pierce::Sacmalarinin hedefleri delip gecme sansi $0%'dir
+effect_mist::Kat basina bir kez olumden korur
+effect_grab::Kat basina bir kez, yakindaki bir tasi sahinin uzerine cek ve istedigin yone firlat
+effect_grab_console::Kat basina bir kez, yakindaki bir tasi al ve istedigin yone firlat
+effect_assault::<pieces> ilk hamlelerinde +1 kare daha hareket edebilir
+effect_militia::Piyonlar dört yönde hareket edebilir / saldırabilir
+effect_bad_shells::$0 sacmanin atis acisini ikiye katlar
+effect_heir::Varis: $1|(Gizli varis, sah olurse onun yerini alır.)
+effect_nothing::Modifiyer yok
+effect_wraith::<pieces> sadece hareket ederken veya tehdit olustururken vurulabilir
+effect_manual_reload::Tur basina bir fisek doldur
+  -- <pieces> and <piece> are not necessarily the same piece type.
+effect_protect::<piece> olmayan, <pieces>'a yakin taslar tur basina en fazla 2 kez hasar alabilir
+effect_bridge::Hendek uzerinde bir yol ac
+effect_healer::<pieces> hareket etmek yerine yakindaki muttefikleri iyilestirebilir
+  -- the last one = the last one alive/remaining
+effect_lastg::After killing a <piece>, promote another <piece> if it's the last one
+effect_curse::<piece> oldurulduyse bu karti cevir
+effect_jester::Soytarilar capraz hareket edebilir ve +2 hiz kazanir | Soytarilar olduklerinde sapkayi devreder.
+effect_free_souls::Her katın başında rastgele $0 ruh ekle
+effect_plumed::Bir <piece> +3 can kazanir ve capraz saldirabilir
+effect_emergency::<piece>'a ilk kez vurdugunda +1 hiz kazanir ve en yakin piyonu terfi ettirir
+effect_despair::Bir <piece> oldugunde, diger tum taslar korkar. Sana saldıramazlar ve bir sonraki hamlelerinde kaçarlar
+effect_force_promote::Piyonlar her zaman <target_pieces>'e terfi eder
+effect_leaderbond::Bir <piece> oldugunde, <leaders> $0 hasar alir
+effect_fearsome::+1 korku capi|Piyon olmayan bir tasi oldurdugunde, siyah sahin etrafındaki taslar korkar. Sana saldıramazlar ve bir sonraki hamlelerinde kaçarlar
+effect_humanshield::Korkutucu etki piyon olumlerinde de tetiklenir
+effect_terrorism::Korkutucu etki, öldürülen taslarin cevresinde de uygulanir
+effect_search::Yenile:$1
+effect_tactic::Beyaz her turda $0’dan fazla tas cinsini hareket ettiremez
+effect_confidence::Namlundaki eksik her muhimmat icin +1 ates gucu
+effect_spy::+1 casus maskesi|* Beyazlari dagitmak icin bir casus bul ve yaklas|* Casuslar terfi alirken siyaha donusur
+effect_push::<pieces> ctaslari $0 kadar itebilir
+effect_swap::<pieces>, <target_piece> ile yer degistirebilir
+  -- can charge your king = can run towards your king (this is used for the Unicorn card, which lets knights ram you down)
+effect_charge::<pieces> hareket etmek yerine kralına hucum edebilir ve onu 1 kare iter
+  -- white pieces ready to move = about to move
+effect_elusive::Harekete hazir beyaz taslar sana saldiramaz
+  -- a piece that would kill you instead gets promoted to a queen
+effect_killprom::<pieces> Siyah Sahi infaz etmek yerine, vezire terfi eder
+effect_holoking::Bir ruh kullandiginda bir hologram yarat|Hologram onu olduren taslari 2 tur boyunca dondurur
+effect_holocloak::Her hologram yarttiginda 6 tur boyunca gizlilik kazan
+effect_holoreveal::Hologramin yok edildiginde gizlilik kaybolur
+effect_catapult::<pieces> sana atis yapabilir
+  -- a countdown starts when there are only 6 pieces left. If you don't end the floor within the countdown, you die.
+effect_deathcount::6 tas kaldiginda, bolumu bitirmek icin $0 turun olur
+effect_disguise::Bir <piece> oldugunde, $0 tur boyunca gizlilik kazan
+effect_promote::<pieces> son hatta ulastiklarinda terfi edebilir
+effect_bully::Seni tehdit eden her <piece> icin -1 ates gucu
+effect_investigate::<pieces> aciga cikmis casuslari infaz eder ve gorevi iptal eder
+effect_false_king::Sahte sah hasar aldiginda onu bir atla degistir.
+effect_full_firerange::Silahin doluyken $1 atis mesafesi kazan
+effect_full_firepower::Silahin doluyken $1 ates gucu kazan
+  -- browse the entire deck and pick your card the next time you're getting a black card
+effect_browse::Sıradaki siyah kartin icin desteye goz at ve bir kart seç
+effect_replace_white_card::Beyaz karti baska bir kartla degistir
+effect_pike::<pieces> conlerindeki iki kareye saldirabilir
+effect_reformed::<pieces> standart saldirilarini kullanamazlar
+effect_armorgap::<pieces> bir turda $0'dan fazla hasar alamaz
+effect_bow::<pieces> ok firlatabilir|+1 <piece> atis hizi
+  -- fire = shoot your shotgun
+effect_silencer::Gizli durumdayken, gorunmeden ates et
+effect_prison::<target_piece> yakinindaki <pieces> zaptedilir|(Zaptedilmis taslar hareket edemez ve saldiramaz, uzerlerinden gecilebilir)
+effect_knockweak::<pieces> +50% sansla itilebilirler
+effect_flagstones::+$0 flagstone|Jump to a flagstone at any time|+1 firepower while you stand on a flagstone
+effect_uncover::<pieces> gizliyken bile sana saldirabilir
+effect_tearing::Sacmalarinin saplandigi taslar kanar|(Kanayan taslar her vurusta ekstra hasar alir)
+effect_bleed_slow::Kanayan taslar -1 hiz kaybeder
+effect_caltrops::Hareket eden dusmanlari kanatma sansi +$0%'dir|(Kanayan taslar her vurusta ekstra hasar alir)
+effect_grenade_center_dmg::El bombasi merkez karede $1 hasar verir
+effect_grenade_bleed::El bombalari kanatma yapar|(Kanayan taslar her vurusta ekstra hasar alir)
+effect_vampire::<pieces> kanamaya direnclidir|<pieces> yakindaki taslarin kanamasini durdurur ve onlardan iyilesme alir.
+effect_rep::<pieces> oldukten sonra onlari <target_pieces> ile degistir
+  -- orb = Seer's Orb, special ability that lets you place an orb over a piece to know its next move
+effect_shackles::Kürenin etkisi altindaki tas hamlesini degistiremez ve -1 hiz kaybeder
+effect_ruler::Tum <target_pieces> oldugunde kazanirsin
+effect_hop_dmg::Zipla hasari:$1
+  -- use up all your jumps available in a turn
+effect_botte::Tüm ziplama haklarini tuket; bir sonraki atisinda ziplama degeri kadar ates gücü kazan
+effect_fitness::<pieces> atlar gibi hareket edebilir (saldiramazlar)
+effect_grenade_proof::El bombasi hasarina direnclisin
+effect_grenade_stun::El bombalari taslari $0 tur boyunca dondurur
+effect_trampoline::Tahtadan dusen taslar tamamen iyilesmis olarak geri doner|Ziplayan el bombalari 
+  -- Replaces Theocracy and Hippocracy descriptions on the boss level, where you have to beat the big white king instead. Royalty shall prevail = royalty shall have the last word = royalty was fated to make a comeback
+effect_fallen::Uzun zaman once hukum surduler...|Ama kraliyet ustun gelecektir
+  -- Produce = generate. Used with every_x_turn key
+  -- eg: Every 10 turns: Produce 1 grenade
+effect_mk_grenades::$0 el bombasi kazan
+effect_mk_ammo::$0 muhimmat kazan
+effect_heirprom::Varisler saha terfi eder
+effect_freereload::Her oldurmede doldur
+effect_overload::Hareket etmeden doldurmak, pompali tufek doluyken icine bir fisek daha sikistirmani saglar
+effect_delay_mult::Tum kart gecikmeler artık $0% kadar daha uzun
+effect_paralysis::$0 tur boyunca veya sah cekilene kadar hamle yapamazsin
+effect_cannonball::$0 top ekle|Toplar tutulup taslara firlatilabilir
+  -- backups refer to cards that add pieces after a number of turns
+effect_alarm::Beyazlarin Destekleri, oldurdugun her tas icin $0 tur erken gelir
+  -- Here "strategy" refers to the difficulty level of the algorithm deciding the white side's moves. Shows as: "White Strategy:+1"
+  -- "White Strategy" can also be translated as "AI Intelligence", "AI Cleverness", or "White Tactics". Take your pick
+effect_ai_lvl::Beyazlarin taktigi: $1
+
+effect_carryking::<pieces>, <head> bitisikse onu hareket ettirir
+effect_sprint::Hareket mesafesi: $1
+effect_summoner::Muttefikin yoksa muttefik yaratmak icin ruh harcayabilirsin
+effect_onboarding::Bir piyon terfi ettiginde veya piyon olmayan bir destek tahtaya girdiginde ‘Hosgeldin Hediyesi’ni tekrar cevir.
+effect_small_key::Kat basina bir kez, yakındaki bir kaleye tiklayarak onu kaldir veya yakindaki hapsedilmis bir tasi donustur|Ve Beyazları dağıt
+effect_small_key_console::Kat basina bir kez, yakındaki bir kaleyi hedef alip onu kaldir veya yakindaki hapsedilmis bir tasi donustur|Ve Beyazları dağıt
+effect_rapunzel::İlk kez bir kaleyi öldürdüğünde, siyah bir vezir ortaya çıkar
+effect_anarchy::Ordu düzenini rastgele yap|Rastgele iki tasi herhangi bir diger tasa terfi ettir
+effect_censor::Bir tas <piece> seni tehdit ettiginde, rastgele bir siyah karti isaretle veya tum isaretli kartlari cevir
+effect_exile::Eger bir fil bu turda veya $0 tur sonrasında hala hayattaysa, bu karti cevir
+effect_spawn::<pieces> hareket etmek yerine bir <target_piece> yaratabilir
+effect_lightfoot::<pieces> engellerin üzerinden her yönde atlayabilir
+effect_hole_cover::Siper veya hendekteki taslarin mermilerden kacinma sansi %50’dir
+effect_hole_start::Muharebe alaninda $0 cukur kaz
+effect_tunnels::Bir cukurun yanindayken diger herhangi bir cukura hareket edebilirsin
+effect_hole_solid::Cukurlar onlari kullandiginda kapanmazlar
+effect_block::<pieces> tur bitene kadar olmez
+effect_jumpy::Silahini doldurdugunda bu karti cevir
+effect_extra_white_choice::Kart secimleri bir ek beyaz kart icerir, fakat yalnizca biri alinabilir
+  -- Charnier mode: Each house represents a floor, and villages represent raids. This effect adds one more floor to the next raids.
+effect_extra_floor::Koyler fazladan bir eve sahiptir
+effect_stoning::<pieces> siyah saha kaya parcasi atarlar
+effect_vendetta::Bir tasi oldurdugunde, benzer taslarin hepsi siradaki tura ilerler
+effect_reload_grenade::El bombalarini doldurmak icin pompali muhimmati kullan
+effect_reform::Bir piyon terfi ettiginde bu karti cevir
+  -- the royal promote effect should be kept as short as possible
+effect_royal_promote::Patron piyonlara terfi ettirir
+effect_sheath::Sacmalar her vurusta taslari isaretler|Isaretli taslar, silahini doldurdugunda 1 hsr alir
+effect_redemption::Bir siyah tas oldugunde, tahtaya benzer bir beyaz tas ekler
+  -- Shrapnels are shot out of the shotgun along with the regular pellets.
+effect_shrapnel::Sarapnel: $1|Sarapneller 0 hasar verir ama sacma efektini tetikler
+  -- With the Butcher effect, blade can be used to inflict damage, instead of being restricted to finishing pieces off.
+effect_butcher::Kilic artik oldurucu darbe yapabilir
+
+
+  -- STATS
+  -- These are shown when hovering the mouse cursor over the stats shown to the left of the checkboard in-game.
+  -- $0 is always replaced with the number for that stat, except with range.
+  -- Range is how far you can shoot before your pellets disintegrate, but it's slightly randomized so we give two numbers, a minimum and a maximum, thus $0 is replaced with "3-5" for example.
+  -- For stat_blade and stat_jump, "nearby" means on one of the 8 squares around your king, including corner squares.
+stat_firepower::Pompali tufegindeki her fisek $0 sacma atar. Her biri 1 hasar verir.
+stat_range::Sacmalarinin mesafesi $0 karedir
+stat_f_arc::Sacmalarin $0 uzerinde yayilir
+stat_knock::Sacmalarinin $0% taslari puskurtme sansi vardir
+stat_pierce::Sacmalarinin $0% taslari delme sansi vardir
+  -- [You can / you are allowed to] kill a nearby piece with...
+stat_blade::Yakinindaki $0 veya daha az cana sahip tasi fisek harcamadan oldur
+stat_fearsome::Bir tasi oldurdugunde, korku mesafesindeki tum taslar korkar ve sıradaki turda kacarlar
+  -- [You can / you are allowed to] jump over a nearby piece...
+stat_jump::Turu sonlandirmadan yakınındaki bir tasin uzerinden $0 kadar zipla
+stat_g_dmg::El bombasi hasari
+
+  -- CONDITIONS
+  -- These are used with the flip_if and card_exhausted_bc keys.
+  -- $0 is replaced with a piece name, $0s is replaced with the pluralized version of that piece name. You can use one or the other.
+cond_contact::Bir tas sana bitisik
+cond_inner::Sahin tahtanin kenarinda degil
+cond_first-reload::Pompali tufegin dolduruldu
+cond_no_piece::Tahtada hiç $0 yok
+cond_only_pieces::Tahtada yalnizca $0 var
+cond_not_cloaked::Sahin gizli degil
+
+
+  -- SPECIALS
+  -- These are special abilities a player can get with specific cards in the game. They always use the right click on PC, or a specific button if playing with a controller. In the '_console' varients, $0 is replaced with that button's name or icon.
+
+special_strafe::Suzulme modu: Bir hedefe sag tiklarsan, sonraki hamlelerinde o hedefe +15° aciyla ates edersin
+special_strafe_console::Suzulme modu: $0 tusuna basarak bir hedef sec ve sonraki hamlelerinde ona +15° aciyla ates et
+
+special_scope::Sag tik: aci -45$, menzil +2 | Her hareket veya doldurmada sifirlanir
+special_scope_console::$0'a bas: aci -45$, menzil +2 | Her hareket veya doldurmada sifirlanir
+
+special_decree::Tum dolu fisekleri ateslemek icin sag tikla
+special_decree_console::Tum dolu fisekleri ateslemeden once $0'a bas
+
+special_grenade::El bombasini firlatmak icin sag tikla
+special_grenade_console::El bombasini firlatmak icin $0'a bas
+
+special_orb::Right click on a piece to predict its next move
+special_orb_console::Press $0 to select a piece and predict its next move
+
+special_dig::Yakinindaki bir kareye cukur kazmak icin sag tikla
+special_dig_console::Yakinindaki bir kareye cukur kazmak icin $0'a bas
+
+
+  -- WANDS
+  -- These are other special abilities that can be used by clicking on a wand, if you have its card. They usually regenerate on each new level.
+wand_0::Rastgele dusmanlara $0 hasar verir
+wand_1::Muhimmatini yeniler ve silahini doldurur
+  -- in wand_2, $0 gets replaced with the translation for "firepower"
+  -- non-$leader target -> prompts the player to choose the target when activating this ability
+wand_2::$leader olmayan hedeflere $0 hasar verir
+wand_3::Herhangi bir yonde $0 kare kadar hareket eder
+wand_4::Tum beyaz taslari yukari iter|Siradaki hareketlerini 2 tur boyunca geciktirir
+wand_5::Sectigin bir beyaz tasi oynatir
+wand_6::Bir tasi 3 tur boyunca dondurur ve ruhunu calar
+  -- refill = regenerate = can be used again
+wand_7::Bir piyonu yok eder|Piyon olmayan bir tasi oldurdurgunde yeniden kullanilabilir
+wand_8::Sahin yanındaki bir tasi donusturur
+
+  -- DISRUPTION
+  -- These are effects available to the player on reaching a special tile when they have the Undercover Mission.
+  -- "their" always refers to the white army
+  -- the name for each effect is always shown with the corresponding description below, and with an icon to illustrate.
+disrupt_effect_name_0::Beyazlari sabote et
+disrupt_effect_name_1::Sularini zehirle
+disrupt_effect_name_2::Muhimmatlerini cal
+disrupt_effect_name_3::Beyaz sahi bicakla
+disrupt_effect_name_4::Ayakkabilarini bagla
+disrupt_effect_name_5::Kaderi tersine cevir
+disrupt_effect_name_6::Gardiyanlari etkisizlestir
+disrupt_effect_name_7::Son Turlari tersine cevir
+
+disrupt_effect_desc_0::Istedigin bir beyaz karti pasiflestir
+disrupt_effect_desc_1::Tum beyaz taslarin canini maks. -1 azalt
+disrupt_effect_desc_2::Muhimmatini yenile ve silahini doldur
+disrupt_effect_desc_3::Saha 4 can kadar hasar ver
+disrupt_effect_desc_4::Tum beyaz taslarin hizini -1 azalt
+  -- refers to a card called Karma which usually gives different maluses depending on what square color you're standing on.
+disrupt_effect_desc_5::Kaderin cilvesi pozitif yonlu olur
+disrupt_effect_desc_6::Piyonlar artik sana saldiramaz
+  -- refers to a card called Final Countdown which usually kills you if you fail to win the level in a specific number of turns
+disrupt_effect_desc_7::Son turlarin sonunda tum beyaz taslari yok et
+
+  -- SHOTGUN NAMES
+  -- The shotguns are named after historical leaders. Only translate if these names are usually spelled differently in your language.
+Solomon::Suleyman
+Victoria::Victoria
+Ramesses II::II. Ramses 
+Richard III::III. Richard 
+Makeda::Makeda
+Alexander::Buyuk Iskender
+Yvan IV::Korkunc Ivan
+Attila::Attila
+Montezuma::Montezuma
+
+  -- SHOTGUN UNLOCKS
+  -- These are the conditions to unlock each shotgun.
+shotgun_unlock_1::Bu tufegi acmak icin|6+ atis mesafesine ulas
+shotgun_unlock_2::Bu tufegi acmak icin|%100 geri itme sansina ulas
+shotgun_unlock_3::Bu tüfegi acmak icin|4+ fisek kapasitesine ulas
+shotgun_unlock_4::Bu tufegi acmak icin|4+ kilica ulas
+  -- Here search refers to the search stat/mechanic which allows the player to reroll card choices.
+shotgun_unlock_5::Bu tufegi acmak icin yenile ile 4 kez kart yenile
+shotgun_unlock_6::Bu tufegi acmak icin|0-2 atis mesafesine ulas
+  -- this next one is a puzzle for the players, they have to figure out that R6F8H7 refers to: Rank 6 (in throne mode), Floor 8, H7 chess coordinates. The player has to dig a hole there using the shovel card. Please keep the composition of the code and only replace R and F with the first letter of your translations for "Rank" and "Floor".
+shotgun_unlock_7::Bos silah kasasinda|"R6F8H7" kodu islenmis.
+  -- "Death Marks" refers to the card Death Mark
+shotgun_unlock_8::Bu tufegi acmak icin|2 Olum Isaretleri karti edin
+
+  -- CONSOLE
+  -- This is used on consoles only. (please translate it anyway)
+  -- Switch profile = Switch to a different account on the console
+switch_profile::Profili degistir
+
+  -- TUTORIAL
+  -- These are all used in the tutorial. (easy to test once you're done, yay!)
+  -- 'ctrl_tuto_' keys are always followed by a pictogram of the controls whose function is being described.
+
+objectives_tuto::Objectives:
+objective_tuto_1::- Beyaz filden kacin|- Kaleye gir
+  -- get = pick up = obtain
+objective_tuto_2::- Pompali tufegi al
+objective_tuto_3::- Kaleyi patakla
+objective_tuto_4::- Atlari dov
+objective_tuto_5::- Beyaz sahi alasagi et
+chess_tuto_1::Filler capraz hareket eder
+ctrl_tuto_1_1::Hareket edecegin yonu sunula sec:
+ctrl_tuto_1_2::Suna basarak onayla:
+chess_tuto_3::Kaleler yatay ve dikey hareket eder
+ctrl_tuto_3_1::Nisan al:
+ctrl_tuto_3_2::Ates et:
+ctrl_tuto_3_3::Hareket ederek veya suna basarak tufegini doldur:
+  -- '| |' is intended, makes a double linebreak
+chess_tuto_4::Atlar L seklinde hareket eder| |Taslarin uzerinden atlayabilirler, dikkatli ol!
+ctrl_tuto_4_1::Kullanarak her zaman taslarin bilgisini okuyabilirsin:
+ctrl_tuto_4_2::Oyunu sununla durdurabilirsin:
+chess_tuto_5_1::Sahlar her yone hareket edebilir
+chess_tuto_5_2::Piyonlar sadece bir adim ileri gidebilirler ama capraz saldirabilirler!
+ctrl_tuto_5_1::Her kattaki hedefin beyaz sahi alasagi etmek
+ctrl_tuto_5_2::Kullanarak kart aciklamalarini tekrar okuyabilirsin:
+  -- dangers display = visual warnings = show dangerous squares
+ctrl_tuto_5_3::Kullanarak tehlike gostergesini acip kapatabilirsin:
+tuto_barrels::Namlular:|Bu,  tufeginizde bulunan mühimmattır; içinde kaldigi surece ateş edebilirsiniz.| Doldurmak için sadece sahınızı hareket ettirin veya $0 basin.
+tuto_ammo::Muhimmat:|Bu sizin yedek muhimmatinizdir.|Namlulariniz doluyken hareket ettiginizde veya hiç muhimmatiniz kalmadiginda yeni mühimmat kazanirsiniz.
+tuto_folly_shields::Hamakat Kalkanlari:|Artık dikkatli olmazsaniz olebilirsiniz! Neyse ki bu kalkanlar sizi ani hatalardan korur. Her turun ardindan yeniden dolarlar.| |Kalkan sayisini ayarlardan degistirebilirsiniz.
+tuto_card_black::Her kati temizlediginizde bir yukseltme alirsiniz...
+tuto_card_white::...tabi dusman da ayni sekilde! Iyi Sanslar!
+
+  -- TUTORIAL DIALOGUES
+  -- These are the names as displayed at the beginning of dialog boxes.
+black_king::Siyah Sah:
+black_bishop::Siyah Fil:
+
+  -- Black Bishop:
+dialogue_tuto_1_1::Hasmetmeab, cumle ahali sizi terk eyledi; yalniz bu aciz kulunuz hizmet ve nasihat için huzurunuzdayim. Musaade buyurursaniz, tedbirli bir ricati arz etmek isterim.  -- [White bishop appears]
+  -- Black king:
+dialogue_tuto_1_2::Hain!! Beyazlar icinde gülünç duruyorsun!
+  -- Black bishop:
+dialogue_tuto_1_3::Sultanim, korkarım ki bu vaziyette fazlasiyla acigiz. Lutfen, kaleye siginalim.
+  -- B King:
+dialogue_tuto_1_4::Evet, gidelim. Zaten bu rezaleti nasıl telafi edecegime dair aklimda bir fikir var.
+  -- [Both get into the castle. Next screen is in a room with a shotgun on a pedestral.]
+  -- B King:
+dialogue_tuto_2_1::Iste orada, en sadik kullarimdan biri…
+  -- B Bishop:
+dialogue_tuto_2_2::Sultanim? Ne… ne yapmayi dusunuyorsunuz?
+  -- B King:
+dialogue_tuto_2_3::Kraliyet pompalim!! Şimdi o hain it ogullarinin yuzunu gorelim bakalim.
+  -- B Bishop: (distressed)
+dialogue_tuto_2_4::Türkçe:Yuce Sultanim, yalvaririm, bu fazla ileri gidiyor, buna goz yumamam.
+  -- B King:
+dialogue_tuto_2_5::Kapa su gevsek agzini ve burada kal. Sana da onayina da ihtiyacim yok zaten.
+  -- [Back outside in front of the castle. A white rook is there.]
+  -- B King: (can replace this line with any sort of gratuitous threat that plays on words with the rook piece or with the castle in the background)
+dialogue_tuto_3_1::Hey sen, acemi serseri! Duvarlarima hayran olmaya mi geldin!? Yaklas bakalim, sana gösterecegim bir sey var!!
+  -- B King, after shooting once at the rook, needs to reload their shotgun:
+dialogue_tuto_3_2::Seni ise yaramaz bok cuvali, beni yeniden doldurmaya mı mecbur ediyorsun?
+  -- B King has killed the rook, and now two knights come onto the board.
+  -- B King: (snarky remark on knights' weird L-shape movement in chess)
+dialogue_tuto_4_1::Ah, bir de kraliyet süvarisi gelmis. Siz esek openler düz cizgide yurumeyi hala çozemediniz mi?
+  -- B Bishop, explaining you can see enemy piece's info in the interface.
+dialogue_tuto_4_2::Sahim, eski tebaaniz hakkında bilgi derlemis bulunuyorum; onlari daha iyi taniyasiniz diye. Bu bilgiler hareket düzenlerini, sagliklarini ve hizlarini kapsamaktadir.
+  -- B King: (callback to the first time the king told the bishop to shut up)
+dialogue_tuto_4_3::Sana o gevsek agzini kapatmani soylememis miydim!?
+  -- Both knights are blown to pieces by the Black King.
+  -- B King:
+dialogue_tuto_powerup::Barut kokusu ve hain tebaanin sacilan parcalarini gormek gibi bir sey yok! Her gecen dakika daha da canlandigimıi hissediyorum!
+  -- The white king and queen come onto the board with a few pawns.
+  -- B King: (lead hail refers to the shotgun's pellets. can replace this with any vaguely threatening pun/joke about rival royalty)
+dialogue_tuto_5_1::Vay be, yasasin kraliyet cifti, ha? Alin size yasasin, yasasin kurşun, hah!!
+  -- Still B King, to himself: ("gets it" = dies. Needs to convey that the white side will give up if their king dies)
+dialogue_tuto_5_2::Eminim bu korkaklar, degerli Beyaz Sahlari yere duser dusmez cimlerimden tuyuverir.
+  -- The B King defeats the small white army.
+  -- Narrator, with illustrations: (continuation from vig_1, to be found further below, which is actually displayed at the start of the tutorial, and this is shown after the tutorial is completed)
+  -- (the "claim over thyne former subjects' souls" is about the game's mechanic of stealing piece's souls when they die to move like them.)
+  -- (B Bishop prophesizes that the B King's anger will lead him to his demise)
+vig_2_tuto::Beyazlar yok olunca, siyah fil Siyah Sah'in huzuruna cikti; kendi ic cokusunun izlerini tasiyarak,  ona şunları söyledi: "Sen berbat bir sahsin, yine de saltanatin kutsaldir. Eski tebaanın ruhları uzerindeki hakkın sana kalacak ve biz  gazabindan korkmaya devam edecegiz. Bu yüzden uyarima kulak ver. Bir insanın ofkesi, ne kadar ilahi olursa olsun, her daim onun felaketi olmustur."
+vig_3_tuto::Ve artık Siyah Sah gercekten herkesce terk edilmisti; adina tek bir kale bile kalmamisti. Elinde yalnızca uc sey vardi: biricik kraliyet pompalisi, onurunun kirintilari ve kehanet edilen gazabin hiddetlenen atesi. Hep benim felaketim olurmus, ha? Ay, mahvoldum!! Daha tam olarak ne kaybedebilirim ki!? Karanlik cilginligi icinde sah, pompalisini bir kez daha doldurdu ve son sah matiyla yuzlesmeye gitti.
+
+  -- ACHIEVEMENT NAMES
+  -- please check directly in game in the codex for the signification of each achievement
+ach_FULL_SET::Full Set
+ach_WIZARD::Wizard
+ach_COMPLETE::Complete
+
+  -- This is given when the player defeats the secret bishop boss
+ach_AVENGED::Avenged
+  -- This is given when the player defeats the secret bishop boss and shoots at the red book which gave his powers to the black bishop
+ach_EXORCISED::Exorcised
+
+ach_SWARM::Swarm
+ach_LEGION::Legion
+ach_SNIPER::Sniper
+ach_ASSASSIN::Assassin
+ach_STEROID::Steroid
+ach_TRIGGER_HAPPY::Trigger Happy
+ach_SCAVENGER::Scavenger
+ach_HAREM::Harem
+ach_SOCIAL_DISTANCING::Social Distancing
+ach_RELIGION::Religion
+ach_SECRET::Secret
+ach_SECURITY_SERVICE::Security Service
+ach_INQUISITION::Inquisition
+ach_MOBILITY::Mobility
+ach_BOUNDARIES::Boundaries
+ach_MACHINE_GUN::Machine Gun
+ach_SURVIVOR::Survivor
+ach_DEMOLITION::Demolition
+ach_HORSEMEN_OF_THE_APOCALYPSE::Horsemen Of The Apocalypse
+ach_ROYAL_RETAINER::Royal Retainer
+ach_THE_FLOOR_IS_LAVA::The Floor Is Lava
+ach_EMPEROR::Emperor
+ach_LATE_TO_THE_PARTY::Late To The Party
+ach_UNEXPECTED_ENTRANCE::Unexpected Entrance
+ach_SWORDMAN::Swordman
+ach_CLIFFHANGER::Cliffhanger
+ach_NINJA::Ninja
+ach_SLAUGHTER::Slaughter
+ach_BENEVOLENCE::Benevolence
+ach_BUILDER::Builder
+
+  -- Names of the shotguns
+  -- You can now change the spelling of the shotgun names to match the SHOTGUN NAMES keys
+ach_SOLOMON::Suleymen
+ach_VICTORIA::Victoria
+ach_RAMESSES_II::II. Ramses
+ach_RICHARD_III::III. Richard
+ach_MAKEDA::Makeda
+ach_ALEXANDER::Buyuk Iskender
+ach_YVAN_IV::Korkunc Ivan
+ach_ATTILA::Attila
+ach_MONTEZUMA::Montezuma
+
+
+ach_MERCIFUL_RULER::Merciful Ruler
+ach_A_VELVET_GLOVE::A Velvet Glove
+ach_DELETED::Deleted
+ach_SQUARE_ALLEGIANCE::Square Allegiance
+ach_INCARNATION::Incarnation
+ach_LIKE_FATHER_LIKE_SON::Like Father Like Son
+ach_HUMILIATION::Humiliation
+
+  -- This achievement is given for throwing an iron queen off of the checkboard
+ach_HASTA_LA_VISTA_BABY::Hasta La Vista Baby
+
+ach_HOW_IT_SHOULD_BE::How It Should Be
+ach_SHE_IS_EVERYWHERE::She Is Everywhere
+ach_MORTAL_PERIL::Mortal Peril
+ach_PROJECTILE_DYSFUNCTION::Projectile Dysfunction
+ach_HOPE_THIS_HITS::Hope This Hits
+ach_NINE_LIVES::Nine Lives
+ach_YOUR_WIFE_MY_WIFE::Your Wife My Wife
+ach_A_MIGHTY_FORTRESS::A Mighty Fortress
+ach_UNDERPRESSURE_AMMO::Underpressure Ammo
+ach_GLUTTONY::Gluttony
+ach_IRON_KING::Iron King
+ach_WIDOW::Widow
+ach_YOU_SHALL_NOT_PASS::You Shall Not Pass
+ach_BLITZ::Blitz
+ach_BULLET::Bullet
+ach_SUICIDE_PACT::Suicide Pact
+ach_OH_NO::Oh No!
+ach_MR_PRESIDENT::Mr President!
+ach_LIFEGUARD::Lifeguard
+ach_MMMMH_DELICIEUX::Mmmmh Delicieux!
+
+  -- $0 is replaced with the number for each rank, this is the achievement given for completing them
+ach_rank::Rank $0
+
+ach_DANGEROUS_LIFE::Dangerous Life
+ach_NIGHTMARE_ERA::Nightmare Era
+ach_DRAUGHTS::Draughts
+ach_PUPPET_MASTER::Puppet Master
+ach_HIDDEN_CONSPIRATOR::Hidden Conspirator
+ach_DECEIVER::Deceiver
+ach_STARBURST::Starburst
+ach_DETENTION::Detention
+ach_OUT_OF_TIME::On The Clock
+ach_JEALOUSY::Jealousy
+ach_DISCREET_HOST::Discreet Host
+ach_FIRST_AID::First Aid
+
+  -- More shotgun names
+
+
+  -- This one is for defeating the secret queen boss
+ach_MARITAL_PEACE::Marital Peace
+  -- This one is for defeating the secret 4 horsemen of the apocalypse boss
+ach_END_OF_THE_WORLD::End Of The World
+  -- And this one is for getting the secret ending where the black king steals one of the apocalypse horsemen's horses
+ach_NEW_JOB::New Job
+
+ach_WORKPLACE_ACCIDENT::Workplace Accident
+ach_BULLFIGHTING::Bullfighting
+ach_BURIED_ALIVE::Buried Alive
+ach_COLD_REGICIDE::Cold Regicide
+ach_FINAL_ESCAPE::Final Escape
+ach_HIPPOCRACY::Hippocracy
+ach_BLOODBATH::Bloodbath
+ach_ANARCHY::Anarchy
+ach_WARDEN::Warden
+ach_MIDNIGHT_DANCE::Midnight Dance
+ach_KING_WARBAND::King Warband
+ach_OVERPOPULATION::Overpopulation
+ach_OBSCURANTISM::Obscurantism
+ach_EXPULSION::Expulsion
+ach_UNITED_HANDS::United Hands
+ach_DEATH_SENTENCE::Death Sentence
+ach_KINDLED_ATROCITY::Kindled Atrocity
+ach_ARCHITECT_OF_RUIN::Architect of Ruin
+ach_SOVEREIGN_OF_THE_MASS_GRAVE::Sovereign of the Mass Grave
+ach_CINDERLORD::Cinderlord
+
+
+  -- ACHIEVEMENT DESCS
+ach_FULL_SET_desc::10 siyah kart edin
+ach_WIZARD_desc::3 Buyulu Asa edin
+ach_COMPLETE_desc::Beyaz Sahi oldur
+ach_AVENGED_desc::Siyah Fili oldur
+ach_EXORCISED_desc::Kizil Kitabi oldur
+
+  -- $0, $1 and $2 are replaced with card names.
+ach_cards_desc::$0, $1 ve $2 ile kazan
+
+  -- same description for all shotgun achievements.
+ach_gun_desc::Bu pompali tufekle taht modunu bitir
+
+ach_MERCIFUL_RULER_desc::Hicbir piyonu oldurmeden kati temizle
+ach_A_VELVET_GLOVE_desc::Hicibir lider olmayan tasi oldurmeden kati temizle
+ach_DELETED_desc::6 turda kati temizle
+ach_SQUARE_ALLEGIANCE_desc::Beyaz karelere degmeden kati temizle
+ach_INCARNATION_desc::Yalnizca ruhlarla hamle yaparak kati bitir
+ach_LIKE_FATHER_LIKE_SON_desc::Beyaz sahi varisini ona firlatarak oldur
+  -- hopping = jumping
+ach_HUMILIATION_desc::Beyaz sahi uzerinde ziplayarak oldur
+ach_HASTA_LA_VISTA_BABY_desc::Demir Veziri oldur
+ach_HOW_IT_SHOULD_BE_desc::Dusman bolgesinde 2 at, 2 kale, 2 fil, 1 vezir, 1 sah, ve 8 piyona sahip ol
+ach_SHE_IS_EVERYWHERE_desc::Tahtada ayni anda 5+ vezire sahip ol
+ach_MORTAL_PERIL_desc::Tek seferde 4 tas tarafindan tehdit altında kal
+ach_PROJECTILE_DYSFUNCTION_desc::Türkçe:Maksimum rezervinden daha fazla muhimmati şarjöründe bulundur
+ach_HOPE_THIS_HITS_desc::120 veya daha yuksek aciya sahip ol
+ach_NINE_LIVES_desc::Kara sisi 9 kez aktive et
+ach_YOUR_WIFE_MY_WIFE_desc::Veziri al ve tura başladığın kareye taşı
+ach_A_MIGHTY_FORTRESS_desc::Tahtada ayni anda 6+ kaleye sahip ol
+ach_UNDERPRESSURE_AMMO_desc::1 ates gucune sahip ol
+ach_GLUTTONY_desc::20+ muhimmata sahip ol
+ach_IRON_KING_desc::Taht modunu hamakat kalkanlarini kullanmadan bitir
+ach_WIDOW_desc::Taht modunu veziri oldurmeden bitir
+ach_YOU_SHALL_NOT_PASS_desc::Taht modunu herhangi bir piyonun terfi etmesine izin vermeden bitir
+ach_BLITZ_desc::Taht modunu 5 dakikadan kisa surede bitir
+ach_BULLET_desc::Taht modunu 2 dakikadan kisa surede bitir
+ach_SUICIDE_PACT_desc::Siyah ve Beyaz sahlari bir el bombasi ile yok et
+ach_OH_NO_desc::Kendi el bomban ile ol
+ach_MR_PRESIDENT_desc::Bir kalenin sahi ucan bir tastan korumasini sagla
+ach_LIFEGUARD_desc::Bir tasi hendekten disari it
+ach_MMMMH_DELICIEUX_desc::Beyaz sah tarafindan sindiril
+
+  -- finish throne = finish throne mode. $0 is replaced with rank number.
+ach_rank_desc::Taht modunu $0 seviyede bitir
+
+ach_MARITAL_PEACE_desc::Bela'yı yok et
+ach_END_OF_THE_WORLD_desc::Mahserin Dört Atlisi'ni oldur
+ach_NEW_JOB_desc::Atli'nin isini cal
+ach_WORKPLACE_ACCIDENT_desc::Piyon olmayan bir tasin tahtadan dusmesini sagla
+ach_BULLFIGHTING_desc::Unicorn'un kendisini oldurmesini sagla
+ach_BURIED_ALIVE_desc::Sahi mozole hasari ile oldur
+ach_COLD_REGICIDE_desc::Sahi gizlilik modu acikken oldur
+ach_FINAL_ESCAPE_desc::Son Turlarda herhangi bir tasa hasar vermeden kati temizle
+ach_HIPPOCRACY_desc::Atlarin beyazlara hukmetmesine izin ver
+ach_BLOODBATH_desc::Tahtada ayni anda 12+ kanayan tasin olmasini sagla
+ach_ANARCHY_desc::Tahtada ayni anda 4+ sah olmasini sagla
+ach_WARDEN_desc::8+ tasin hapsi boylamasini sagla
+ach_MIDNIGHT_DANCE_desc::Gizli bir hamleden +4 ates gucu kazan
+
+
+
+  -- "allies" as in extra black pieces
+ach_KING_WARBAND_desc::Muttefikler arasinda bir at, bir fil ve bir kaleye sahip ol
+  -- "generate" refers to the Gatehouse card which can create knights from rooks.
+ach_OVERPOPULATION_desc::Tek katta 12 attan fazlasini yarat
+  -- "turned face down" as in flipped, deactivated
+ach_OBSCURANTISM_desc::6 siyah karti kapali sekilde bulundur
+  -- "Send back" as in removing them indirectly by deactivating white cards.
+ach_EXPULSION_desc::Tek katta 4+ piyon olmayan tasi geri gonder
+  -- "type" as in knight, rook, king, etc
+ach_UNITED_HANDS_desc::Tahtada ayni anda 8 farkli tas olmasini sagla
+  -- for this next achievement, the player has to use the new death mark effect that some cards have
+ach_DEATH_SENTENCE_desc::Pompalini doldurarak 4+ tasi oldur
+ach_KINDLED_ATROCITY_desc::Mezarlik modunda 6 koyu yak
+ach_ARCHITECT_OF_RUIN_desc::Mezarlik modunda 10 koyu yak
+ach_SOVEREIGN_OF_THE_MASS_GRAVE_desc::Mezarlik modunda 15 koyu yak
+  -- "hoard" as in accumulate cinders without using them.
+ach_CINDERLORD_desc::Mezarlik modunda 5+ kul istifle
+
+
+  -- LIVE SPECIFIC
+  -- Used only on Xbox.
+HERO_BestThroneRank::Taht modunda ulasilan en yuksek seviye
+HERO_BestThroneTime::Taht modunda ulasilan en iyi sure (herhangi bir seviye)
+HERO_BestEndless::Sonsuz modunda ulasilan en yuksek kat
+HERO_HighscoreChase::Kaçis modunda ulasilan en yuksek skor
+  -- Shown as player's status.
+Presence_RP_menu::Menude
+Presence_RP_tutorial::Alistirmada
+Presence_RP_throne::Taht modunda - Seviye {0}
+Presence_RP_endless::Sonsuz modunda - Kat {0}
+Presence_RP_chase::Kacis modunda
+
+  -- PSN SPECIFIC
+  -- Used only on PS4 & PS5
+ach_PLATINIUM::Pompali Tufeklerin Sahi
+ach_PLATINIUM_desc::Tum kupalar toplandi
+ui_trophies::Kupalar: $0%
+
+  -- STORIES
+  -- Intro to throne mode (vig_1 is also used for the tutorial, and the tutorial ends with a variation of vig_2 and vig_3)
+vig_1::Siyah Sah, savurgan ve sevimsiz bir hukumdar olmustu. Yıllar gectikce tebaasinin giderek buyuyen bir kismi, daha yuksek ucretler ve gercek anlamda insanca bir is vadeden Beyaz Sah'a gecti. Ardindan kalesini aldilar. Atlari hizmetinden istifa etti. Hatta esi, Vezir bile onu terk etti.
+  -- Black bishop prophesizes the king's anger will lead him to his demise. Also mentions "the claim over thyne subjects' souls" referring to getting the pieces' souls when you kill them in the game.
+vig_2::Ayrilmadan once, son siyah fil Siyah Sah'in huzuruna cikti ve ona sunlari soyledi: "Sen berbat bir sahsin, yine de saltanatin kutsaldir. Eski tebaanın ruhları uzerindeki hakkın sana kalacak ve biz  gazabindan korkmaya devam edecegiz. Bu yüzden uyarima kulak ver. Bir insanın ofkesi, ne kadar ilahi olursa olsun, her daim onun felaketi olmustur."
+  -- Black King angry.
+vig_3::Ve artık Siyah Sah gercekten herkesce terk edilmisti; adina tek bir kale bile kalmamisti. Elinde yalnızca uc sey vardi: biricik kraliyet pompalisi, onurunun kirintilari ve kehanet edilen gazabin hiddetlenen atesi. Hep benim felaketim olurmus, ha? Ay, mahvoldum!! Daha tam olarak ne kaybedebilirim ki!? Karanlik cilginligi icinde sah, pompalisini bir kez daha doldurdu ve son sah matiyla yuzlesmeye gitti.
+
+  -- Transition to the boss big white king.
+vig_4::Yillarca kazanilan yeni tebaa… Onlari misafir etmek ve guvende hissettirmek icin harcanan bunca emek… Hepsi, pompalisiyla ortaligi birbirine katan bir saray delisinin elinde cam kiriklarina dondu. Beyaz Sah buna goz yummayacakti, tek bir kat bile daha. Kelimenin tam anlamiyla öfkeden catlayarak, bu bencil manyagi ezmek icin golge gibi uzerine dikildi.
+  -- Variant for when the Theocracy card is in play. The White King takes back the rule from the bishops.
+vig_5::Yillarca kazanilan yeni tebaa… Onlari misafir etmek ve guvende hissettirmek icin harcanan bunca emek… Hepsi, pompalisiyla ortaligi birbirine katan bir saray delisinin elinde cam kiriklarina dondu. Beyaz Sah kenara cekilip Konseyin kralligini yerle bir etmesine izin veremezdi, vermeyecekti de. Kelimenin tam anlamiyla öfkeden catlayarak, bu bencil manyagi ezmek icin golge gibi uzerine dikildi.
+
+  -- Normal win
+vig_6::Ve iste boylece Siyah Sah'in ofkesi onu nihayet zafere tasidi. Sira Beyaz Sah'in kalelerini ve tebaasini calmaktaydi! Onun korkunc yonetimine bir kez daha katlanmak zorunda kalacaklardi…
+vig_7::"Neselenin!" derdi onlara, "en azindan parcalara ucmadiniz!" diyerek pompalisini havaya kaldirir ve gulerdi. Yenilmemis, hicbir sey ogrenmemisti. Yeni bir Beyaz Sah'in yukselip tum hikayenin bastan baslamasi cok uzun surmeyecekti.
+
+  -- SECRET ENDINGS
+  -- On killing the Black Bishop:
+vig_8::""Hah! simdi kim mahvoldu!!" diye bagirdi Pompali Sah. Fakat fil can verirken, kitap ellerinden kayip tahtanin uzerinden yukseldi ve gokyuzunun guvenli siginagina uctu…
+  -- The following is only used if a secret condition is respected of killing the bishop. Otherwise the normal ending is shown instead after this.
+
+vig_9::"Yavas ol bakalim!" dedi. Pompalisi çoktan dolu olan Sah, nisan aldı…
+vig_10::.…ve kitabi paramparca etti, onu cirpinan, yirtik sayfalar yiginina donusturdu. "Kutsal sozlerinize bir bakin simdi!" dedi, "Benden ve su pompalimdan daha kutsal hicbir sey yok!!"
+vig_12::"Neselenin! En azindan parcalara ayrilmadiniz!" dedi pompalisini havaya kaldirarak. En seytani kahkahayi atti. "Yeni bir ferman vakti! Artık hicbirinize kitap yok!! Yasak! Kutsal kitaplari kaldirin! Bugunden itibaren ben sizin Tanrinizim. Pompali Tanri!!" Onun yonetimi sonsuza dek acimasiz olacak ve herkes tarafindan korku ile anilacakti.
+
+  -- Shown after defeating the secret boss queen. ("The Blight")
+  -- Should read as not-so-subtle freaky erotica. Don't use direct sexual words but lean hard into the double-entendres. Have fun with it!
+  -- Don't make it too long. The original text is already quite close to the limit of what can be displayed at once.
+vig_13::Bu dokunaclar, Sah'in zihninde pek cok kasıp kavuran uykusuz gecede yasamaya devam edecekti. Kemikten yoksun, kaygan kollarin bedeninin uzerinde surunmesi, onu kavraması, sehvetli bir gucle uzerine cokmesi fikri bile yeterliydi. Hayat enerjisini emmesi. Vezir her zaman acgozlu bir yaratikti… Simdi ise kendini pompalisinin soguk namlulariyla ve onlarin issiz pompalama hareketiyle avutmak zorunda kalacakti.
+  -- Then the normal ending is shown.
+
+  -- Shown after the black king steals a horse from one of the secret boss horsemen of the apocalypse and leaves the board.
+  -- The black king found a "job opening" as a horseman of the apocalypse, leaving his old role of king.
+vig_14::Kim  lanetli bir İncil belası olarak iş buldu tahmin edin? Sefil, degersiz tebaaya yaranmaktan bikan Sah'a sonunda layik bir gorev! O bir uyarı falan degildi, seytani binekinin götürdüğü her yerde sadece olum ve yıkımdan ibaretti. Seytan ayagini denk alsin, Pompali Sah az once kirli kurumsal merdivene adimini atti.
+
+  -- Shown after defeating the secret boss Horsemen of the Apocalypse
+  -- Should mention the artifacts because they are shown in the accompanying illustration. Please do your best to translate the last joke about the horsemen's Last Judgement/Apocalypse being the black king's "thursday". (i.e. a day like any other)
+vig_15::"Mahserin Atlilari mi, Pabucumun Binicileri gibi daha cok!" diye siritti Siyah Sah, eserleri kupa odasına asarken. Fil, zaman zaman Son Yargi'nin haberolarından, Kıyamet Gunu'nun getiricilerinden soz etmis; tamamen kraliyet ilgisizligiyle karsilasmisti. Onlar icin Son Yargı olabilirdi pekala, ama Pompali Sah icin bu siradan bir Persembe'ydi.
+
+
+  -- PLURALS
+  -- This is where you define pluralization rules!
+  -- The first rule defines the default behaviour for any word.
+  -- If your language doesn't add 's's at the end of plural words (like in Chinese, Japanese or Korean) please set this first line to '*:s:'. (i.e.: remove the s just before the linebreak) This is very important, otherwise you'll see 's's popping up everywhere.
+
+*:s:s
+
+  -- For any word that is spelt differently when pluralized, use either of these syntaxes:
+  -- child:s:children
+  -- child:2:children
+  -- Use this second version to define a puralization for a specific number. (here 2) Outside percentages the game only uses numbers below 10, so there's no need to define rules for numbers above 10. In case of unnumbered plurals (eg: "knight(s) get +2 HP") then the game internally uses the number 999. So you can write a specific rule for 999 for these cases like so:
+  -- knight:999:knights
+  -- Both versions of the word should be in your language. The original word should be identical to how you wrote it previously in this file, including capitalization(!).
+
+  -- This is used for piece names (full names, not the short versions), for the translation for "shell", and for any words you might have set between braces so you could write its proper plural form here.
+
+man:s:men
+
 
