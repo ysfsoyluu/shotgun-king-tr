@@ -2,6 +2,9 @@
 
 This is a Turkish translation for Shotgun King: The Final Checkmate.
 
+## Author
+Created by Yusuf Soylu
+
 ## Features
 - Menu: 100% translated
 - UI: 99% translated
